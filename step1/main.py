@@ -94,7 +94,7 @@ for epoch in range(2):  # loop over the dataset multiple times
             if i % 2000 == 1999:    # print every 2000 mini-batches
                 print(f'[{epoch + 1}, {i + 1:5d}] loss: {running_loss / 2000:.3f}')
                 running_loss = 0.0
-
+print('Finished Training')
 if __name__ == '__main__':
     dataiter = iter(testloader)
     images, labels = dataiter.next()
@@ -103,4 +103,3 @@ if __name__ == '__main__':
     imshow(torchvision.utils.make_grid(images))
     print('GroundTruth: ', ' '.join(f'{classes[labels[j]]:5s}' for j in range(4)))
 
-print('Finished Training')
