@@ -34,11 +34,10 @@ def imshow(img):
 
 
 # get some random training images
-if __name__ ==  '__main__':
-    dataiter = iter(trainloader)
-    images, labels = dataiter.next()
+dataiter = iter(trainloader)
+images, labels = dataiter.next()
 
-    # show images
-    imshow(torchvision.utils.make_grid(images))
-    # print labels
-    print(' '.join(f'{classes[labels[j]]:5s}' for j in range(batch_size)))
+# show images
+imshow(torchvision.utils.make_grid(images))
+# print labels
+print(' '.join(f'{classes[labels[j]]:5s}' for j in range(batch_size)))
