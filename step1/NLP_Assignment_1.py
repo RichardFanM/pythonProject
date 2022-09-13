@@ -3,6 +3,8 @@ import io
 import tokenizers.pre_tokenizers as pt
 import evaluate
 from evaluate import load
+import torch
+import transformers
 
 import csv
 
@@ -25,7 +27,12 @@ print("Corpus size: " + str(len(corpus)))
 
 def tokenize():
     bpt = pt.BertPreTokenizer()
-    print(bpt.pre_tokenize_str("this is a test"))
+    print(bpt.pre_tokenize_str("this is a test, and hello world."))
 
 
 tokenize()
+
+perplexity = load("perplexity",  module_type= "measurement")
+# bbu_results = perplexity.compute(add_start_token=False, data=corpus, model_id='bert-base-uncased')
+bp_results = perplexity.compute(add_start_token=False, data=corpus, model_id='monologg/biobert_v1.1_pubmed')
+print(bp_results)
