@@ -32,7 +32,10 @@ def tokenize():
 
 tokenize()
 
-perplexity = load("perplexity",  module_type= "measurement")
-# bbu_results = perplexity.compute(add_start_token=False, data=corpus, model_id='bert-base-uncased')
+perplexity = load("perplexity", module_type="measurement")
+bbu_results = perplexity.compute(add_start_token=False, data=corpus, model_id='bert-base-uncased')
 bp_results = perplexity.compute(add_start_token=False, data=corpus, model_id='monologg/biobert_v1.1_pubmed')
-print(bp_results)
+print(bp_results.get("mean_perplexity"))
+print(bbu_results.get("mean_perplexity"))
+
+# https://zhuanlan.zhihu.com/p/31852747
