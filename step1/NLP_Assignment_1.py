@@ -1,14 +1,10 @@
-import os
-import string
-
-os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
-
 import io
 
 import tokenizers.pre_tokenizers as pt
 import evaluate
 from evaluate import load
 
+import string
 import csv
 
 corpus = []
